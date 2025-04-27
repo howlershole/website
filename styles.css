@@ -11,7 +11,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0,217,255,0.15) 0%, rgba(0,0,0,1) 70%), url('background.gif') center/cover no-repeat;
+  background: radial-gradient(circle, rgba(0,217,255,0.15) 0%, rgba(0,0,0,1) 70%), url('https://assets-global.website-files.com/65cb5ea7e13cae0f3e2c9d6f/65cb5f0d574a6c2df4b93760_background.gif') center/cover no-repeat;
   z-index: -1;
   animation: moveBackground 30s infinite linear;
 }
