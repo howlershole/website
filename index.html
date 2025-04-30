@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PSI | Awaken Your Power</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSIONIC</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Background -->
   <div class="background"></div>
 
-  <div class="hero">
-    <img src="https://logo.png" alt="PSI Logo" class="logo">
-    <h1 class="tagline">Awaken Your Power.</h1>
+  <!-- Scroll Button -->
+  <img src="scroll.png" alt="Scroll Icon" class="scroll-icon" onclick="openPopup()" />
+
+  <!-- Modal Popup -->
+  <div id="popup" class="popup-overlay" onclick="closePopup(event)">
+    <div class="popup-content">
+      <img src="popup.png" alt="Popup" />
+      <button class="close-btn" onclick="closePopup(event)">×</button>
+    </div>
   </div>
 
-  <audio id="ambient" loop>
-    <source src="https://assets-global.website-files.com/65cb5ea7e13cae0f3e2c9d6f/65cb5f0a82fb260ddc23c0fc_ambient.mp3" type="audio/mpeg">
-  </audio>
+  <!-- Floating animation (optional fallback if JS needed) -->
+  <script>
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
 
-  <button id="sound-toggle">🔊</button>
-
-  <script src="script.js"></script>
+    function closePopup(event) {
+      if (event.target.id === 'popup' || event.target.classList.contains('close-btn')) {
+        document.getElementById('popup').style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
