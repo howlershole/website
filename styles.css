@@ -1,58 +1,77 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  background: #000;
-  font-family: 'Orbitron', sans-serif;
-  color: white;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .background {
-  position: fixed;
+  background: url('background.png') center center / cover no-repeat fixed;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,217,255,0.15) 0%, rgba(0,0,0,1) 70%), url('https://assets-global.website-files.com/65cb5ea7e13cae0f3e2c9d6f/65cb5f0d574a6c2df4b93760_background.gif') center/cover no-repeat;
-  z-index: -1;
-  animation: moveBackground 30s infinite linear;
-}
-
-@keyframes moveBackground {
-  0% { background-position: center; }
-  100% { background-position: center 1000px; }
-}
-
-.hero {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.scroll-icon {
+  position: absolute;
+  bottom: 120px;
+  right: 120px;
+  width: 100px;
+  cursor: pointer;
+  animation: floatScroll 4s ease-in-out infinite;
+  transition: filter 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-icon:hover {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
+}
+
+@keyframes floatScroll {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
-  text-align: center;
+  z-index: 20;
 }
 
-.logo {
-  width: 200px;
-  animation: float 6s ease-in-out infinite;
+.popup-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+.popup-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
-.tagline {
-  margin-top: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-#sound-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: none;
+.close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 36px;
+  height: 36px;
+  background: white;
+  color: black;
   border: none;
-  color: white;
-  font-size: 2rem;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 0 8px #000;
 }
